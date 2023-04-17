@@ -1,10 +1,10 @@
 import {Router} from 'express';
 const router = Router();
-import {crearElementosDisforia } from '../controllers/detalles.paciente.controller';
 
 
 
-router.post('/', crearElementosDisforia); 
+
+router.post('/', (req,res)=>{res.send("hola mundo");}); 
 
 
 export default router;

@@ -1,29 +1,32 @@
-import mysql from 'mysql2/promise';
+import mysql2 from 'mysql2/promise';
 import { config } from '../config/dbs.config';
 
 class ConnectDatabase {
 
     private _objConexion;
+
     constructor() {
-        
+
         this._objConexion = this.connectDbs();
     }
 
-    public async connectDbs() {
+    public async connectDbs(){
+
         try {
 
-            const objCdbs = await mysql.createConnection({
+            const objetoDbs = await mysql2.createConnection({
                 host: config.host,
                 database: config.dbs,
                 user: config.user,
-                password: config.password
-
+                password: config.password,
+                waitForConnections: true, 
+        
+                    
             });
 
-            objCdbs.connect();
+           
             console.log("BASE DE DATOS CONNECTADA");
-            return objCdbs;
-
+            return  objetoDbs;
         }
         catch (err) {
 
@@ -40,5 +43,4 @@ class ConnectDatabase {
 
 }
 
-//exportamos un objeto de la clase connectDatabase
-export default new ConnectDatabase;
+export default ConnectDatabase;
