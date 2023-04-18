@@ -14,6 +14,7 @@ app.set('puerto', process.env.PORT);
 //middlewares
 app.use(cors());    
 app.use(morgan('dev'));
+app.use(express.json());
 
 //routes 
 indexRouter(app);

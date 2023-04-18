@@ -1,4 +1,4 @@
-import routerPaciente from './generalidades.paciente.routes';
+import routerPaciente from './ficha.tecnica.routes';
 
 export function indexRouter(app: any){
 

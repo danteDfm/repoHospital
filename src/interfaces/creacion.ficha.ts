@@ -3,62 +3,29 @@ export interface Paciente{
     rutPaciente: string;
     nombresPaciente: string;
     apellidoPaterno: string;
-    apellidoMarterno: string;
+    apellidoMaterno: string;
     pronombre: string;
     nombreSocial: string;
     fechaNacimiento: Date;
-    edadPaciente: number;
     domicilioPaciente: string;
 
 }
 
+export interface HabitosDrogas{
 
-interface ElementosDisforia{
+    usoDroga: boolean;
+    tipoDrogas: {
 
-    disforia: boolean;
-    detallesDisforia: string;
-
-
-}
-
-interface PrendasDisconformidad{
-
-    usoPrenda:boolean;
-    tipoPreda:string
-
-}
-interface HistoriaIdentidad{
-
-    identidadGenero:string;
-    orientacionSexual:string;
-    inicioTransicion: Date;
-    tiempoLatencia: Date;
-    apoyoFamilia:boolean;
-
-}
-
-interface AntecedentesClinicosFamilia{
-
-    antecedentesPadres: boolean;
-    antecedentesHermanos: boolean;
-
-}
-
-interface PadecimientosFamilia{
-
-    detallesPadecimiento: string;
-
-}
-
-
-interface HabitosAlimneticios{
-
-    detalleHabito: string;
-
-}   
-
-interface habitosDrogas{
-
-    detalleHabito: string;
+        Estimulante: {nombreEstimulante: string},
+        Alucinogena: {nombreAlucinogena: string},
+        Depresora: {nombreDepresora: string}
+    },
+    fk: {
+        fkUsoDrogas: number;
+        fkEstimulante: number, 
+        fkAlucinogena: number, 
+        fkDepresora: number, 
+    },
+    fkPaciente: number;
 
 }
